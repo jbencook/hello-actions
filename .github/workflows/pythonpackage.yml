@@ -13,4 +13,4 @@ jobs:
     - name: Build Docker image
       run: docker build -t hello-actions .
     - name: Test with pytest
-      run: docker run hello-actions
+      run: docker run --runtime=nvidia hello-actions
