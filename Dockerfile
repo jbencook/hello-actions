@@ -1,7 +1,9 @@
-FROM nvidia/cuda:10.0-base
+FROM nvcr.io/nvidia/pytorch:20.03-py3
 
-# COPY . /code/
-# WORKDIR /code
-# RUN pip install pytest
+COPY . /code/
+WORKDIR /code
 
-CMD [ "nvidia-smi" ]
+RUN pip install pytest
+RUN pip install -e .
+
+ENTRYPOINT [ "pytest" ]
